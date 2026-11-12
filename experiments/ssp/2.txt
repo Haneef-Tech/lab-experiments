@@ -1,0 +1,33 @@
+% Facts and Rules
+
+animal(tiger) :-
+    has_hair,
+    eats_meat,
+    has_stripes.
+
+animal(lion) :-
+    has_hair,
+    eats_meat,
+    has_mane.
+
+animal(elephant) :-
+    has_trunk,
+    has_big_ears.
+
+animal(parrot) :-
+    has_feathers,
+    can_fly,
+    has_beak.
+
+animal(penguin) :-
+    has_feathers,
+    cannot_fly,
+    can_swim.
+
+% Animal characteristics
+
+has_hair.
+eats_meat.
+has_stripes.
+
+% Query

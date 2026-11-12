@@ -1,0 +1,19 @@
+parent(john, mary).
+parent(john, david).
+parent(mary, alice).
+parent(david, peter).
+
+
+parent(john, mary).
+parent(mary, alice).
+parent(alice, peter).
+
+grandparent(X, Y) :-
+    parent(X, Z),
+    parent(Z, Y).
+
+
+likes(haneef, cricket).
+likes(haneef, music).
+likes(rahul, football).
+likes(rahul, cricket).

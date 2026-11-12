@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char macro[10][50], name[20], line[50];
+    int n, i;
+
+    printf("Enter number of macro instructions: ");
+    scanf("%d", &n);
+
+    printf("Enter macro name: ");
+    scanf("%s", name);
+
+    printf("Enter macro definition:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf(" %[^\n]", macro[i]);
+    }
+
+    printf("\nEnter macro call: ");
+    scanf("%s", line);
+
+    if(strcmp(name, line) == 0)
+    {
+        printf("\nExpanded Macro:\n");
+
+        for(i = 0; i < n; i++)
+        {
+            printf("%s\n", macro[i]);
+        }
+    }
+    else
+    {
+        printf("Macro not found!");
+    }
+
+    return 0;
+}

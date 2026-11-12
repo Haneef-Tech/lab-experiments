@@ -1,0 +1,33 @@
+echo "Creating a file named sample.txt..."
+touch sample.txt
+
+echo "Writing data to file..."
+echo "Hello, this is a test file." > sample.txt
+
+echo "Displaying file content:"
+cat sample.txt
+
+echo "Renaming file to myfile.txt"
+mv sample.txt myfile.txt
+
+echo "Deleting file..."
+rm myfile.txt
+
+echo "File operations completed."
+
+
+echo "Starting a background process..."
+sleep 60 &
+pid=$!
+
+echo "Process created with PID: $pid"
+echo "Checking process using ps command:"
+ps -p $pid
+
+
+echo "Monitoring running processes (press Ctrl+C to stop)..."
+while true
+do
+    ps -e | head -10   # show first 10 processes
+    sleep 5
+Done

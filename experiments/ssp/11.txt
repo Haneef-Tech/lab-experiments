@@ -1,0 +1,33 @@
+
+#!/bin/bash
+
+echo "===== AI SYSTEM MONITOR ====="
+
+# Collect system information
+cpu=$(uptime | awk -F'load average:' '{print $2}' | cut -d, -f1 | xargs)
+memory=$(free -m | awk '/Mem:/ {print $4}')
+disk=$(df / | awk 'NR==2 {print $5}' | tr -d '%')
+
+echo "CPU Load: $cpu"
+echo "Free Memory: $memory MB"
+echo "Disk Usage: $disk %"
+
+echo "-----------------------------"
+
+# Expert System Rules
+
+if (( $(echo "$cpu > 2.0" | bc -l) )); then
+    echo "High CPU Usage!"
+    echo "Advice: Close unnecessary applications."
+
+elif [ "$memory" -lt 500 ]; then
+    echo "Low Memory!"
+    echo "Advice: Close unused programs."
+
+elif [ "$disk" -gt 80 ]; then
+    echo "High Disk Usage!"
+    echo "Advice: Delete unnecessary files."
+
+else
+    echo "System is Healthy!"
+fi
